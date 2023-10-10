@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %} {% load compress %} {% compress css %}
+    <link
+      type="text/x-scss"
+      href="{% static 'department/nav.scss' %}"
+      rel="stylesheet"
+      media="screen"
+    />
+    {% endcompress %} {% include '../conmon/tittle.html' %}
+  </head>
+  <body>
+    <nav class="navigator">
+      <ul class="navigatorLink">
+        <li class="navigatorLinkItem">1</li>
+        <li class="navigatorLinkItem">2</li>
+        <li class="navigatorLinkItem">3</li>
+        <li class="navigatorLinkItem">4</li>
+        <li class="navigatorLinkItem">5</li>
+      </ul>
+    </nav>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<div class="spaceDepartment">
+  <h1>Departamento</h1>
+  <form action="" method="post">
+    {% csrf_token %}
+    <h3 class="spaceDepartmentTittle">Datos empleado</h3>
+    <div class="spaceDepartmentData">
+      <div>Nombre empleado:</div>
+      <div>{{ form.name }}</div>
+      <div>Apellido empleado:</div>
+      <div>{{ form.lastname }}</div>
+    </div>
+    <h3 class="spaceDepartmentTittle">Datos Departamento</h3>
+    <div class="spaceDepartmentData">
+      <div>Nombre departamento:</div>
+      <div>{{ form.nameDepartment }}</div>
+      <div>Sigla:</div>
+      <div>{{ form.shortNameDepartment }}</div>
+    </div>
+    <div class="spaceDepartmentButton">
+      <button type="submit">Guardar</button>
+    </div>
+  </form>
+</div>
