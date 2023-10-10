@@ -16,4 +16,6 @@ urlpatterns = [
     path('EmployerCreateView', views.EmployerCreateView.as_view()),
     path('EmployerCreateView2', views.EmployerCreateView2.as_view()),
     path('SuccesView', views.SuccesView.as_view(), name='SuccesView'),
+    path('EmployerUpdate/<pk>/', views.EmployerUpdate.as_view(), name='EmployerUpdate'),
+    path('EmployerDelete/<pk>/', views.EmployerDelete.as_view(), name='EmployerDelete'),
 ]

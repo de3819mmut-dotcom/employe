@@ -3,11 +3,16 @@ from django.contrib import admin
 from .models import Department
 
 # Register your models here.
+
+
 class DepartmentAdmin(admin.ModelAdmin):
-  list_display = ('name','short_name','active')
-  search_fields = ('name',)
-  list_filter = ('name',)
-  def fullname(self, obj):
-    return obj.name
-  
+    list_display = ('nameDepartment', 'shortNameDepartment',
+                    'activeDepartment')
+    search_fields = ('nameDepartment',)
+    list_filter = ('nameDepartment',)
+
+    def fullname(self, obj):
+        return obj.nameDepartment
+
+
 admin.site.register(Department, DepartmentAdmin)

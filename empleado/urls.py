@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     re_path('', include('applications.home.urls')),
     re_path('', include('applications.employer.urls')),
+    re_path('', include('applications.department.urls')),
 ]
