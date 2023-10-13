@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+<!-- Se cargan los estáticos-->
+{% load static %}
+<!-- Se importa el título-->
+{%block tittle %} Crear Empleados {% endblock tittle %}
+<!-- Se importa el body-->
+{% block body %}
+<!-- Se incluye el menú -->
+{% include 'conmon/nav.html'%}
+<!-- Inicio Bloque contenedor-->
+<h1>Registrar persona</h1>
+<!--{{ form }}-->
+<form action="" method="POST" enctype="multipart/form-data">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit">Guardar</button>
+</form>
+{% include 'conmon/footer.html'%}
+<!-- Fin Bloque contenedor-->
+{% endblock body %}

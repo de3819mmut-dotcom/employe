@@ -1,0 +1,6 @@
+<!-- Inicio Bloque contenedor-->
+{% for departamento in lista_empleados_departamento %}
+<option value="{{ departamento.shortNameDepartment }}">
+  {{ departamento.nameDepartment }}
+</option>
+{% endfor %}

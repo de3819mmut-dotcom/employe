@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+<!-- Se cargan los estáticos-->
+{% load static %}
+<!-- Se importa el título-->
+{%block tittle %} Actualizar Empleado {% endblock tittle %}
+<!-- Se importa el body-->
+{% block body %}
+<!-- Se incluye el menú -->
+{% include 'conmon/nav.html'%}
+<!-- Inicio Bloque contenedor-->
+<div class="ActualizarEmpleadoContainer">
+  <h1 class="ActualizarEmpleadoContainerTitle">Actualizar empleado</h1>
+  <form method="POST">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit">Actualizar</button>
+  </form>
+</div>
+<!-- Fin Bloque contenedor-->
+{% endblock body %}

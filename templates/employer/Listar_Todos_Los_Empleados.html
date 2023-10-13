@@ -1,0 +1,125 @@
+{% extends 'base/base.html' %}
+<!-- Se cargan los estáticos-->
+{% load static %}
+<!-- Se importa el título-->
+{%block tittle %} Listar Empleados {% endblock tittle %}
+<!-- Se importa el body-->
+{% block body %}
+<!-- Se incluye el menú -->
+{% include 'conmon/nav.html'%}
+<!-- Inicio Bloque contenedor-->
+<div class="ContainerListarTodosLosEmpleados">
+  <!-- Inicio Bloque contenedor título-->
+  <div class="ContainerListarTodosLosEmpleadosTitulo">
+    <h1>Lista de empleados</h1>
+  </div>
+  <!-- Fin Bloque contenedor título-->
+  <!-- Inicio Bloque contenedor data-->
+  <!-- Inicio Bloque formualrio data-->
+  <form action="" method="GET">
+    <div class="ContainerListarTodosLosEmpleadosBuscador">
+      {% csrf_token %}
+      <button
+        type="submit"
+        class="ContainerListarTodosLosEmpleadosBuscadorEspacio"
+      >
+        Buscar
+      </button>
+      <input
+        class="ContainerListarTodosLosEmpleadosBuscadorEspacio"
+        type="text"
+        placeholder="Buscar Empleado"
+        name="kword"
+        id="kword"
+      />
+    </div>
+  </form>
+  <!-- Fin Bloque formualrio data-->
+  <!-- Inicio Bloque Lista Empleados data-->
+  <div class="ContainerListarTodosLosEmpleadosDatos">
+    <table class="ContainerListarTodosLosEmpleadosDatosTable">
+      <thead class="ContainerListarTodosLosEmpleadosDatosTableHead">
+        <tr class="ContainerListarTodosLosEmpleadosDatosTableHeadList">
+          <th class="ContainerListarTodosLosEmpleadosDatosTableHeadListItem">
+            ID
+          </th>
+          <th class="ContainerListarTodosLosEmpleadosDatosTableHeadListItem">
+            Apellidos
+          </th>
+          <th class="ContainerListarTodosLosEmpleadosDatosTableHeadListItem">
+            Nombres
+          </th>
+          <th class="ContainerListarTodosLosEmpleadosDatosTableHeadListItem">
+            Departamento
+          </th>
+          <th class="ContainerListarTodosLosEmpleadosDatosTableHeadListItem">
+            Acción
+          </th>
+        </tr>
+      </thead>
+      <tbody class="ContainerListarTodosLosEmpleadosDatosTableBody">
+        {% for employ in lista_empleados %}
+        <tr class="ContainerListarTodosLosEmpleadosDatosTableBodyList">
+          <td class="ContainerListarTodosLosEmpleadosDatosTableBodyListItem">
+            {{ employ.id }}
+          </td>
+          <td class="ContainerListarTodosLosEmpleadosDatosTableBodyListItem">
+            {{ employ.name }}
+          </td>
+          <td class="ContainerListarTodosLosEmpleadosDatosTableBodyListItem">
+            {{ employ.lastname }}
+          </td>
+          <td class="ContainerListarTodosLosEmpleadosDatosTableBodyListItem">
+            {{ employ.department }}
+          </td>
+          <td class="ContainerListarTodosLosEmpleadosDatosTableBodyListItem">
+            <a
+              class="ContainerListarTodosLosEmpleadosDatosTableBodyListItemLink"
+              href="{% url 'employer_app:DetallesDelEmpleado' employ.id  %}"
+              >Ver</a
+            >
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <!-- Fin Bloque Lista Empleados data-->
+  <!-- Inicio Bloque Paginador data-->
+  <div>
+    {% if is_paginated %}
+    <ul class="pagination">
+      <!-- Inicio Bloque Paginador data previous-->
+      {% if page_obj.has_previous %}
+      <li>
+        <a href="?page={{ page_obj.previous_page_number }}"><<</a>
+      </li>
+      {% endif %}
+      <!-- Fin Bloque Paginador data previous-->
+      <!-- Inicio Bloque Paginador data páginas-->
+      {% for pagina in paginator.page_range %}
+      <!-- Inicio Bloque Paginador data páginas comparador-->
+      {% if pagina == page_obj.number %}
+      <li><a href="?page={{ pagina }}" class="active">{{ pagina }}</a></li>
+      {% else %}
+      <li><a href="?page={{ pagina }}">{{ pagina }}</a></li>
+      {% endif %}
+      <!-- Fin Bloque Paginador data páginas comparador-->
+      {% endfor %}
+      <!-- Fin Bloque Paginador data páginas-->
+      <!-- Inicion Bloque Paginador data siguiente-->
+      {% if page_obj.has_next %}
+      <li>
+        <a href="?page={{ page_obj.next_page_number }}">>></a>
+      </li>
+      <!-- Fin Bloque Paginador data siguiente-->
+    </ul>
+    {% endif %} {% endif %}
+  </div>
+
+  <!-- Fin Bloque Paginador data-->
+
+  <!-- Fin Bloque contenedor data-->
+</div>
+<!-- Fin Bloque contenedor-->
+{% endblock body %}

@@ -1,0 +1,33 @@
+{% extends 'base/base.html' %}
+<!-- Se cargan los estáticos-->
+{% load static %}
+<!-- Se importa el título-->
+{%block tittle %} Listar Departamentos {% endblock tittle %}
+<!-- Se importa el body-->
+{% block body %}
+<!-- Se incluye el menú -->
+{% include 'conmon/nav.html'%}
+<!-- Inicio Bloque contenedor-->
+<div class="DepartamentosContainer">
+  <h1 class="DepartamentosContainerTitle">Listar Departamentos</h1>
+  <div class="DepartamentosContainerSpace">
+    {% for departamento in lista_empleados_departamento %}
+    <div class="DepartamentosContainerItem">
+      {{ departamento.nameDepartment }}
+    </div>
+    <div class="DepartamentosContainerItem">
+      {{ departamento.shortNameDepartment }}
+    </div>
+    <div class="DepartamentosContainerItem">
+      <a
+        href="{% url 'employer_app:ListarEmpleadosPorArea' departamento.shortNameDepartment %}"
+        >Ver empleados {{ departamento.shortNameDepartment }}</a
+      >
+    </div>
+    {% endfor %}
+  </div>
+  <div class="DepartamentosContainerSpace"></div>
+  <div class="DepartamentosContainerSpace"></div>
+</div>
+<!-- Fin Bloque contenedor-->
+{% endblock body %}

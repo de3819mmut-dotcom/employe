@@ -1,11 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-  </head>
-  <body>
-    <h1>Home</h1>
-  </body>
-</html>
+{% extends 'base/base.html' %}
+<!-- Se cargan los estáticos-->
+{% load static %}
+<!-- Se importa el título-->
+{%block tittle %} Home Empleados {% endblock tittle %}
+<!-- Se importa el body-->
+{% block body %}
+<!-- Se incluye el menú -->
+{% include 'conmon/nav.html'%}
+<!--Inicio de la imagen de portada-->
+<div class="ImgContainer">
+  <img src="{% static 'images/empleados.jpeg' %}" alt="" />
+</div>
+<!--Fin de la imagen de portada-->
+<!--Inicio de la bienvenida-->
+<div class="Welcome">
+  <h1>Bienvenido al sistema de registro de empleados</h1>
+  <p>Este es un sistema con el que se aprende a usar Django</p>
+  <a href="">Ver empleados</a>
+  <!--Fin de la bienvenida-->
+</div>
+{% endblock body %}

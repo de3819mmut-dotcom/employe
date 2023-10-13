@@ -1,0 +1,21 @@
+{% extends 'base/base.html' %}
+<!-- Se cargan los estáticos-->
+{% load static %}
+<!-- Se importa el título-->
+{%block tittle %} Eliminar Empleado {% endblock tittle %}
+<!-- Se importa el body-->
+{% block body %}
+<!-- Se incluye el menú -->
+{% include 'conmon/nav.html'%}
+<!-- Inicio Bloque contenedor-->
+<div class="EliminarEmpleadoContainer">
+  <h1>Eliminar Empleado: {{ object.name}} {{ object.lastname}}</h1>
+  <form method="POST">
+    {% csrf_token %}
+    <p>Confirmar</p>
+    <button type="submit">Confirmar</button>
+  </form>
+</div>
+
+<!-- Fin Bloque contenedor-->
+{% endblock body %}

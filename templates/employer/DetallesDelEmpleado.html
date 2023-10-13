@@ -1,0 +1,76 @@
+{% extends 'base/base.html' %}
+<!-- Se cargan los estáticos-->
+{% load static %}
+<!-- Se importa el título-->
+{%block tittle %}
+<!-- # Objeto para el título
+{{ employerDetailView.name }} {{ employerDetailView.lastname }}
+<!-- # Objeto para el título -->
+{% endblock tittle %}
+<!-- Se importa el body-->
+{% block body %}
+<!-- Se incluye el menú -->
+{% include 'conmon/nav.html'%}
+<!-- Inicio Bloque contenedor-->
+<div class="ContainerDetalleEmpleado">
+  <h1 class="ContainerDetalleEmpleadoName">
+    {{ employerDetailView.name }} {{ employerDetailView.lastname }}
+  </h1>
+  <h3 class="ContainerDetalleEmpleadoTittle">Todos los datos</h3>
+  <table class="ContainerDetalleEmpleadoTable">
+    <tr class="ContainerDetalleEmpleadoTableList">
+      <td class="ContainerDetalleEmpleadoTableListItem">Nombre:</td>
+      <td class="ContainerDetalleEmpleadoTableListItem">
+        {{ employerDetailView.name }}
+      </td>
+    </tr>
+    <tr class="ContainerDetalleEmpleadoTableList">
+      <td class="ContainerDetalleEmpleadoTableListItem">Apellido:</td>
+      <td class="ContainerDetalleEmpleadoTableListItem">
+        {{ employerDetailView.lastname }}
+      </td>
+    </tr>
+    <tr class="ContainerDetalleEmpleadoTableList">
+      <td class="ContainerDetalleEmpleadoTableListItem">Departamento:</td>
+      <td class="ContainerDetalleEmpleadoTableListItem">
+        {{ employerDetailView.department.nameDepartment }}
+      </td>
+    </tr>
+    <tr class="ContainerDetalleEmpleadoTableList">
+      <td class="ContainerDetalleEmpleadoTableListItem">
+        Avatar: {% if employerDetailView.avatar %}
+        <img
+          src="{{ employerDetailView.avatar.url  }}"
+          alt="Imagen del empleado"
+        />{%else %}
+        <img
+          src="{% static 'images/usuario.jpg' %}"
+          alt="Imagen del empleado"
+        />
+        {% endif %}
+      </td>
+    </tr>
+    <tr class="ContainerDetalleEmpleadoTableList">
+      <td class="ContainerDetalleEmpleadoTableListItem">Habilidades:</td>
+      <td class="ContainerDetalleEmpleadoTableListItem">
+        <ul>
+          {% for habilidad in employerDetailView.skills.all %}
+          <li>{{habilidad.skill}}</li>
+          {% endfor %}
+        </ul>
+      </td>
+    </tr>
+    <tr class="ContainerDetalleEmpleadoTableList">
+      <td class="ContainerDetalleEmpleadoTableListItem">Trabajo:</td>
+      <td class="ContainerDetalleEmpleadoTableListItem">
+        {{ employerDetailView.job }} {{ employerDetailView.get_job_display }}
+      </td>
+    </tr>
+    <tr class="ContainerDetalleEmpleadoTableList">
+      <td class="ContainerDetalleEmpleadoTableListItem">Título:</td>
+      <td class="ContainerDetalleEmpleadoTableListItem">{{ titulo }}</td>
+    </tr>
+  </table>
+</div>
+<!-- Fin Bloque contenedor-->
+{% endblock body %}

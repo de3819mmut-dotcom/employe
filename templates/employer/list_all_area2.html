@@ -6,10 +6,10 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Lista por area 2</h1>
-    {{ lista_empleados_area2 }}
+    <h1>Lista por area</h1>
+    {{ lista_empleados_por_area }}
     <ul>
-      {% for empleado in lista_empleados_area2 %}
+      {% for empleado in lista_empleados_por_area %}
       <li>{{empleado.name}}</li>
       {% endfor %}
     </ul>

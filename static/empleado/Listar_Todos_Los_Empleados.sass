@@ -1,0 +1,88 @@
+.ContainerListarTodosLosEmpleados
+  display: grid
+  align-items: center
+  justify-content: center
+  width: 100%
+  height: 100%
+  margin-top: 70px
+  .ContainerListarTodosLosEmpleadosTitulo
+    display: grid
+    align-items: center
+    justify-content: center
+    width: 100%
+    height: 100%
+  .ContainerListarTodosLosEmpleadosBuscador
+    display: grid
+    align-items: center
+    justify-content: center
+    width: 100%
+    height: 100%
+    grid-template-columns: repeat(2, 1fr)
+    .ContainerListarTodosLosEmpleadosBuscadorEspacio
+      margin: 10px
+  .ContainerListarTodosLosEmpleadosDatos
+    display: grid
+    align-items: center
+    justify-content: center
+    background-color: #ebebeb
+    border: 1px solid #000
+    border-radius: 20px
+    width: 100%
+    .ContainerListarTodosLosEmpleadosDatosTable
+      align-items: center
+      justify-content: center
+      margin: 10px
+      width: 100%
+      .ContainerListarTodosLosEmpleadosDatosTableHead
+        align-items: center
+        justify-content: center
+        margin: 10px
+        border-radius: 20px
+        .ContainerListarTodosLosEmpleadosDatosTableHeadList
+          align-items: center
+          justify-content: center
+          margin: 10px
+          .ContainerListarTodosLosEmpleadosDatosTableHeadListItem
+            align-items: center
+            justify-content: center
+            margin: 10px
+            border-radius: 20px
+            border: 1px solid #fff
+            background-color: #fff
+            width: 150px
+      .ContainerListarTodosLosEmpleadosDatosTableBody
+        align-items: center
+        justify-content: center
+        margin: 10px
+        width: 100%
+        .ContainerListarTodosLosEmpleadosDatosTableBodyList
+          align-items: center
+          justify-content: center
+          margin: 10px
+          .ContainerListarTodosLosEmpleadosDatosTableBodyListItem
+            align-items: center
+            justify-content: center
+            text-align: center
+            margin: 10px
+            .ContainerListarTodosLosEmpleadosDatosTableBodyListItemLink
+              text-decoration: none
+              color: #075800
+ul.pagination
+  display: inline-block
+  padding: 0
+  margin: 0
+
+ul.pagination li {display: inline;}
+
+ul.pagination li a
+  color: black
+  float: left
+  padding: 8px 16px
+  text-decoration: none
+
+ul.pagination li a.active
+  background-color: #4CAF50
+  color: white
+
+ul.pagination li a:hover:not(.active)
+  background-color: #ddd

@@ -1,0 +1,97 @@
+.ContainerAdministrarTodosLosEmpleados
+  display: grid
+  align-items: center
+  justify-content: center
+  width: 100%
+  height: 100%
+  margin-top: 70px
+  .ContainerAdministrarTodosLosEmpleadosTitulo
+    display: grid
+    align-items: center
+    justify-content: center
+    width: 100%
+    height: 100%
+  .ContainerAdministrarTodosLosEmpleadosBuscador
+    display: grid
+    align-items: center
+    justify-content: center
+    width: 100%
+    height: 100%
+    grid-template-columns: repeat(2, 1fr)
+    .ContainerAdministrarTodosLosEmpleadosBuscadorEspacio
+      margin: 10px
+  .ContainerAdministrarTodosLosEmpleadosDatos
+    display: grid
+    align-items: center
+    justify-content: center
+    background-color: #ebebeb
+    border: 1px solid #000
+    border-radius: 20px
+    width: 100%
+    .ContainerAdministrarTodosLosEmpleadosDatosTable
+      align-items: center
+      justify-content: center
+      margin: 10px
+      width: 100%
+      .ContainerAdministrarTodosLosEmpleadosDatosTableHead
+        align-items: center
+        justify-content: center
+        margin: 10px
+        border-radius: 20px
+        .ContainerAdministrarTodosLosEmpleadosDatosTableHeadList
+          align-items: center
+          justify-content: center
+          margin: 10px
+          .ContainerAdministrarTodosLosEmpleadosDatosTableHeadListItem
+            align-items: center
+            justify-content: center
+            margin: 10px
+            border-radius: 20px
+            border: 1px solid #fff
+            background-color: #fff
+            width: 150px
+      .ContainerAdministrarTodosLosEmpleadosDatosTableBody
+        align-items: center
+        justify-content: center
+        margin: 10px
+        width: 100%
+        .ContainerAdministrarTodosLosEmpleadosDatosTableBodyList
+          align-items: center
+          justify-content: center
+          margin: 10px
+          .ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItem
+            align-items: center
+            justify-content: center
+            text-align: center
+            margin: 10px
+            .ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItemLinkVer
+              text-decoration: none
+              color: #075800
+              margin: 10px
+            .ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItemLinkEditar
+              text-decoration: none
+              color: #f6fa0e
+              margin: 10px
+            .ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItemLinkEliminar
+              text-decoration: none
+              color: #ff0808
+              margin: 10px
+ul.pagination
+  display: inline-block
+  padding: 0
+  margin: 0
+
+ul.pagination li {display: inline;}
+
+ul.pagination li a
+  color: black
+  float: left
+  padding: 8px 16px
+  text-decoration: none
+
+ul.pagination li a.active
+  background-color: #4CAF50
+  color: white
+
+ul.pagination li a:hover:not(.active)
+  background-color: #ddd

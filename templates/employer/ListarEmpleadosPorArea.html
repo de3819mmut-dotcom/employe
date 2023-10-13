@@ -1,0 +1,64 @@
+{% extends 'base/base.html' %}
+<!-- Se cargan los estáticos-->
+{% load static %}
+<!-- Se importa el título-->
+{%block tittle %} Listar Empledos Por Departamentos {% endblock tittle %}
+<!-- Se importa el body-->
+{% block body %}
+<!-- Se incluye el menú -->
+{% include 'conmon/nav.html'%}
+<!-- Inicio Bloque contenedor-->
+<div class="EmpledosPorDepartamentosContainer">
+  <h1 class="EmpledosPorDepartamentosContainerTitle">Empleados</h1>
+  <div class="EmpledosPorDepartamentosContainerSpace">
+    <table class="ContainerListarTodosLosEmpleadosDatosTable">
+      <thead class="ContainerListarTodosLosEmpleadosDatosTableHead">
+        <tr class="ContainerListarTodosLosEmpleadosDatosTableHeadList">
+          <th class="ContainerListarTodosLosEmpleadosDatosTableHeadListItem">
+            ID
+          </th>
+          <th class="ContainerListarTodosLosEmpleadosDatosTableHeadListItem">
+            Apellidos
+          </th>
+          <th class="ContainerListarTodosLosEmpleadosDatosTableHeadListItem">
+            Nombres
+          </th>
+          <th class="ContainerListarTodosLosEmpleadosDatosTableHeadListItem">
+            Departamento
+          </th>
+          <th class="ContainerListarTodosLosEmpleadosDatosTableHeadListItem">
+            Acción
+          </th>
+        </tr>
+      </thead>
+      <tbody class="ContainerListarTodosLosEmpleadosDatosTableBody">
+        {% for employ in lista_empleados_por_area %}
+        <tr class="ContainerListarTodosLosEmpleadosDatosTableBodyList">
+          <td class="ContainerListarTodosLosEmpleadosDatosTableBodyListItem">
+            {{ employ.id }}
+          </td>
+          <td class="ContainerListarTodosLosEmpleadosDatosTableBodyListItem">
+            {{ employ.name }}
+          </td>
+          <td class="ContainerListarTodosLosEmpleadosDatosTableBodyListItem">
+            {{ employ.lastname }}
+          </td>
+          <td class="ContainerListarTodosLosEmpleadosDatosTableBodyListItem">
+            {{ employ.department }}
+          </td>
+          <td class="ContainerListarTodosLosEmpleadosDatosTableBodyListItem">
+            <a
+              class="ContainerListarTodosLosEmpleadosDatosTableBodyListItemLink"
+              href="{% url 'employer_app:DetallesDelEmpleado' employ.id  %}"
+              >Ver</a
+            >
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Fin Bloque contenedor-->
+{% endblock body %}

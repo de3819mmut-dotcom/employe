@@ -18,7 +18,7 @@ class Skills(models.Model):
         verbose_name_plural = 'Habilidades'
 
     def __str__(self):
-        return self.skill
+        return self.skill + ' - ' + str(self.id)
 
 
 class Employer(models.Model):
@@ -27,8 +27,8 @@ class Employer(models.Model):
     job = models.CharField('job', max_length=1, choices=JOB_CHOICES)
     department = models.ForeignKey(Department, on_delete=models.CASCADE)
     cv = RichTextField(default='None', blank=True)
-    # avatar = models.ImageField(upload_to='empleado', blank=True, null=True)
-    full_name = models.CharField(
+    avatar = models.ImageField(upload_to='empleados', blank=True, null=True)
+    fullname = models.CharField(
         'fullName', max_length=200, blank=True, null=True)
     skills = models.ManyToManyField(Skills)
     # image = models.ImageField('image', upload_to=None, height_field=None, width_field=None, max_length=None)
