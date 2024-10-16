@@ -8,12 +8,14 @@
 <!-- Se incluye el menú -->
 {% include 'conmon/nav.html'%}
 <!-- Inicio Bloque contenedor-->
+ <div class="space">
 <h1>Registrar persona</h1>
+<div class="spaceDepartment">
 <!--{{ form }}-->
 <form action="" method="POST" enctype="multipart/form-data">
   {% csrf_token %} {{ form.as_p }}
   <button type="submit">Guardar</button>
-</form>
+</form></div></div>
 {% include 'conmon/footer.html'%}
 <!-- Fin Bloque contenedor-->
 {% endblock body %}
